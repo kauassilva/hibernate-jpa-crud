@@ -12,5 +12,6 @@ public interface StudentDAO {
 
     List<Student> findAll();
     List<Student> findByLastName(String theLastName);
+    List<Student> findByFirstNameOrLastName(String theFirstName, String theLastName);
 
 }
