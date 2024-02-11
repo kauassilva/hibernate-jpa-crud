@@ -61,4 +61,12 @@ public class StudentDAOImpl implements StudentDAO {
         return theQuery.getResultList();
     }
 
+    @Override
+    public List<Student> findByEmailLike(String theEmail) {
+        TypedQuery<Student> theQuery = entityManager.createQuery(
+                "FROM Student WHERE email LIKE:theEmail", Student.class);
+        theQuery.setParameter("theEmail", theEmail);
+        return theQuery.getResultList();
+    }
+
 }

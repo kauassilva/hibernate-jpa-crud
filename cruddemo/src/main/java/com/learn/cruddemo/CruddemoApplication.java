@@ -24,8 +24,17 @@ public class CruddemoApplication {
 			//readStudent(studentDAO);
 			//queryForStudents(studentDAO);
 			//queryForStudentsByLastName(studentDAO);
-			queryForStudentsByFirstNameOrLastName(studentDAO);
+			//queryForStudentsByFirstNameOrLastName(studentDAO);
+			queryForStudentsByEmailLike(studentDAO);
 		};
+	}
+
+	private void queryForStudentsByEmailLike(StudentDAO studentDAO) {
+		List<Student> theStudents = studentDAO.findByEmailLike("%luv2code.com");
+
+		for (Student tempStudent : theStudents) {
+			System.out.println(tempStudent);
+		}
 	}
 
 	private void queryForStudentsByFirstNameOrLastName(StudentDAO studentDAO) {
