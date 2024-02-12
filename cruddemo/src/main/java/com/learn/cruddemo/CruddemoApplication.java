@@ -21,15 +21,36 @@ public class CruddemoApplication {
 		return runner -> {
 			//createStudent(studentDAO);
 			//createMultipleStudent(studentDAO);
+
 			//readStudent(studentDAO);
+
 			//queryForStudents(studentDAO);
 			//queryForStudentsByLastName(studentDAO);
 			//queryForStudentsByFirstNameOrLastName(studentDAO);
-			queryForStudentsByEmailLike(studentDAO);
+			//queryForStudentsByEmailLike(studentDAO);
+
+            updateStudent(studentDAO);
 		};
 	}
 
-	private void queryForStudentsByEmailLike(StudentDAO studentDAO) {
+    private void updateStudent(StudentDAO studentDAO) {
+        // Retrieve student based on id: primary key
+        int studentId = 1;
+        System.out.println("Getting student with id: " + studentId);
+        Student myStudent = studentDAO.findById(studentId);
+
+        // Change first name to "Mari"
+        System.out.println("Updating student ...");
+        myStudent.setFirstName("Mari");
+
+        // Update the student
+        studentDAO.update(myStudent);
+
+        // Display the updated student
+        System.out.println("Updated student: " + myStudent);
+    }
+
+    private void queryForStudentsByEmailLike(StudentDAO studentDAO) {
 		List<Student> theStudents = studentDAO.findByEmailLike("%luv2code.com");
 
 		for (Student tempStudent : theStudents) {

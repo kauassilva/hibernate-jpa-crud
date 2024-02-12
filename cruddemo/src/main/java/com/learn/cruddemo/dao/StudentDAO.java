@@ -15,4 +15,6 @@ public interface StudentDAO {
     List<Student> findByFirstNameOrLastName(String theFirstName, String theLastName);
     List<Student> findByEmailLike(String theEmail);
 
+    void update(Student theStudent);
+
 }
