@@ -75,4 +75,12 @@ public class StudentDAOImpl implements StudentDAO {
         entityManager.merge(theStudent);
     }
 
+    @Override
+    @Transactional
+    public Integer updateAllLastName(String theLastName) {
+        return entityManager.createQuery("UPDATE Student SET lastName=:theLastName")
+                .setParameter("theLastName", theLastName)
+                .executeUpdate();
+    }
+
 }

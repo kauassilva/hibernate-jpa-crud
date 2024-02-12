@@ -29,11 +29,22 @@ public class CruddemoApplication {
 			//queryForStudentsByFirstNameOrLastName(studentDAO);
 			//queryForStudentsByEmailLike(studentDAO);
 
-            updateStudent(studentDAO);
+            //updateStudent(studentDAO);
+			updateStudentsLastName(studentDAO);
 		};
 	}
 
-    private void updateStudent(StudentDAO studentDAO) {
+	private void updateStudentsLastName(StudentDAO studentDAO) {
+		Integer numRowsUpdated = studentDAO.updateAllLastName("Samuelsen");
+		System.out.println("Number of updated students: " + numRowsUpdated);
+
+		List<Student> students = studentDAO.findAll();
+		for (Student tempStudent : students) {
+			System.out.println(tempStudent);
+		}
+	}
+
+	private void updateStudent(StudentDAO studentDAO) {
         // Retrieve student based on id: primary key
         int studentId = 1;
         System.out.println("Getting student with id: " + studentId);
