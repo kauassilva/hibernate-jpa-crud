@@ -20,7 +20,7 @@ public class CruddemoApplication {
 	public CommandLineRunner commandLineRunner(StudentDAO studentDAO) {
 		return runner -> {
 			//createStudent(studentDAO);
-			//createMultipleStudent(studentDAO);
+			createMultipleStudent(studentDAO);
 
 			//readStudent(studentDAO);
 			//queryForStudents(studentDAO);
@@ -33,7 +33,7 @@ public class CruddemoApplication {
 
 			//deleteStudent(studentDAO);
 			//deleteAllStudents(studentDAO);
-			deleteByLastName(studentDAO);
+			//deleteByLastName(studentDAO);
 		};
 	}
 
